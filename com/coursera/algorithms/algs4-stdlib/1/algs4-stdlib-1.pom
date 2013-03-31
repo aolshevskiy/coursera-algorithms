@@ -8,13 +8,20 @@
 		<artifactId>algs4-parent</artifactId>
 		<version>1</version>
 	</parent>
-	<artifactId>algs4</artifactId>
+	<artifactId>algs4-stdlib</artifactId>
 
 	<dependencies>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>algs4-stdlib</artifactId>
-			<version>${project.version}</version>
+			<groupId>java3d</groupId>
+			<artifactId>j3d-core</artifactId>
+			<version>1.3.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>java3d</groupId>
+			<artifactId>j3d-core-utils</artifactId>
+			<version>1.3.1</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
