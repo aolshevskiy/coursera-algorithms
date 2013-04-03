@@ -26,7 +26,7 @@ import com.coursera.algorithms.stdlib.StdOut;
  *
  *************************************************************************/
 
-public class DirectedDFS {
+class DirectedDFS {
     private boolean[] marked;  // marked[v] = true if v is reachable
                                // from source (or sources)
 

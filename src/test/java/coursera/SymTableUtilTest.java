@@ -1,5 +1,6 @@
 package coursera;
 
+import coursera.exercise.SymTableUtil;
 import org.testng.annotations.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;

@@ -1,4 +1,4 @@
-package coursera;
+package coursera.exercise;
 
 import static com.google.common.base.Preconditions.checkArgument;
 

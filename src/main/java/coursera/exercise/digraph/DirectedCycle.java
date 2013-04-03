@@ -23,7 +23,7 @@ import com.coursera.algorithms.stdlib.StdOut;
  *
  *************************************************************************/
 
-public class DirectedCycle {
+class DirectedCycle {
     private boolean[] marked;        // marked[v] = has vertex v been marked?
     private int[] edgeTo;            // edgeTo[v] = previous vertex on path to v
     private boolean[] onStack;       // onStack[v] = is vertex on the stack?

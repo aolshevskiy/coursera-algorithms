@@ -12,10 +12,8 @@ import coursera.exercise.graph.ExactGraph;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.google.common.io.CharStreams.readLines;
-import static com.google.common.io.CharStreams.toString;
-import static coursera.SymTableUtil.fromUpperChar;
-import static coursera.SymTableUtil.toUpperChar;
+import static coursera.exercise.SymTableUtil.fromUpperChar;
+import static coursera.exercise.SymTableUtil.toUpperChar;
 
 public class GraphUtil {
 	public static ExactGraph alphaGraph(String[] in) {

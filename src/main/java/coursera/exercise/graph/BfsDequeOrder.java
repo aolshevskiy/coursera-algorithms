@@ -4,11 +4,11 @@ import com.google.common.collect.ImmutableList;
 
 import java.util.List;
 
-import static coursera.SymTableUtil.fromUpperChar;
+import static coursera.exercise.SymTableUtil.fromUpperChar;
 import static coursera.exercise.GraphUtil.alphaGraph;
 import static coursera.exercise.GraphUtil.toSymSeq;
 
-public class BfsDequeOrder {
+class BfsDequeOrder {
 	private final List<Integer> dequeueOrder;
 
 	BfsDequeOrder(String[] in, char source) {

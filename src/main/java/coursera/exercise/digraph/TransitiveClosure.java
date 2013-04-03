@@ -36,7 +36,7 @@ import com.coursera.algorithms.stdlib.StdOut;
  *
  *************************************************************************/
 
-public class TransitiveClosure {
+class TransitiveClosure {
     private DirectedDFS[] tc;  // tc[v] = reachable from v
 
     public TransitiveClosure(ExactDigraph G) {

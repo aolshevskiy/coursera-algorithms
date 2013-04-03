@@ -22,7 +22,7 @@ import com.coursera.algorithms.stdlib.StdOut;
  *
  *************************************************************************/
 
-public class CCBackdoor {
+class CCBackdoor {
     private boolean[] marked;   // marked[v] = has vertex v been marked?
     private int[] id;           // id[v] = id of connected component containing v
     private int[] size;         // size[id] = number of vertices in given component

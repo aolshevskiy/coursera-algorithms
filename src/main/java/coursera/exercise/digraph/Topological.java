@@ -31,7 +31,7 @@ import com.coursera.algorithms.stdlib.StdOut;
  *
  *************************************************************************/
 
-public class Topological {
+class Topological {
     private Iterable<Integer> order;    // topological order
 
     // topological sort in a ExactDigraph
