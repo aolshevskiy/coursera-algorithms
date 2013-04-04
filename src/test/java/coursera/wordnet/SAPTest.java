@@ -76,6 +76,11 @@ public class SAPTest {
 		}};
 	}
 
+	@Test(dataProvider = "ancestor")
+	public void ancestor(Digraph g, int v, int w, int ancestor) {
+		assertThat(new SAP(g).ancestor(v, w)).isEqualTo(ancestor);
+	}
+
 	private static final Splitter SPLITTER = Splitter.on(CharMatcher.WHITESPACE).omitEmptyStrings();
 
 	private static final Function<String, Integer> TO_INT = new Function<String, Integer>() {
@@ -88,7 +93,7 @@ public class SAPTest {
 	private static Digraph digraph(String... input) {
 		String[] ve = Arrays.copyOfRange(input, 0, 2);
 		Digraph g = new Digraph(Integer.parseInt(ve[0]));
-		for(String e: Arrays.copyOfRange(input, 2, Integer.parseInt(ve[1]))) {
+		for(String e: Arrays.copyOfRange(input, 2, Integer.parseInt(ve[1]) + 2)) {
 			List<Integer> vw = ImmutableList.copyOf(Iterables.transform(SPLITTER.split(e), TO_INT));
 			g.addEdge(vw.get(0), vw.get(1));
 		}
