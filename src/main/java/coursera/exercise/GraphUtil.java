@@ -1,6 +1,9 @@
 package coursera.exercise;
 
 import com.coursera.algorithms.algs4.Bag;
+import com.coursera.algorithms.algs4.Edge;
+import com.coursera.algorithms.algs4.EdgeWeightedGraph;
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -14,6 +17,7 @@ import java.util.List;
 
 import static coursera.exercise.SymTableUtil.fromUpperChar;
 import static coursera.exercise.SymTableUtil.toUpperChar;
+import static java.lang.Integer.parseInt;
 
 public class GraphUtil {
 	public static ExactGraph alphaGraph(String[] in) {
@@ -68,5 +72,18 @@ public class GraphUtil {
 		for(int c : counts)
 			result += c;
 		return result;
+	}
+
+	public static EdgeWeightedGraph edgeWeighted(int V, String... in) {
+		EdgeWeightedGraph g = new EdgeWeightedGraph(V);
+		for(String line: in) {
+			List<String> edgeWeight = ImmutableList.copyOf(Splitter.on(CharMatcher.WHITESPACE).omitEmptyStrings().split(line));
+			List<String> edge = ImmutableList.copyOf(Splitter.on("-").split(edgeWeight.get(0)));
+			int v = fromUpperChar(edge.get(0));
+			int w = fromUpperChar(edge.get(1));
+			int weight = parseInt(edgeWeight.get(1));
+			g.addEdge(new Edge(v, w, weight));
+		}
+		return g;
 	}
 }
