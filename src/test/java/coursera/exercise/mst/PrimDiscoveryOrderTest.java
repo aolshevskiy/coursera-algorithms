@@ -5,14 +5,14 @@ import com.google.common.base.Joiner;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static coursera.exercise.GraphUtil.edgeWeighted;
+import static coursera.exercise.GraphUtil.weightedGraph;
 import static coursera.exercise.SymTableUtil.fromUpperChar;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 public class PrimDiscoveryOrderTest {
 	@DataProvider(name = "data")
 	static Object[][] data() {
-		return new Object[][]{{edgeWeighted(
+		return new Object[][]{{weightedGraph(
 			10,
 			"A-F      10",
 			"G-A       7",
@@ -34,7 +34,7 @@ public class PrimDiscoveryOrderTest {
 		),
 			"D",
 			"5 3 6 1 2 4 8 10 12"
-		}, {edgeWeighted(
+		}, {weightedGraph(
 			10,
 			"A-B       6",
 			"F-A       4",
@@ -55,7 +55,7 @@ public class PrimDiscoveryOrderTest {
 			"I-J      16"),
 			"F",
 			"4 3 6 1 5 8 2 9 10"
-		}, {edgeWeighted(
+		}, {weightedGraph(
 			10,
 			"A-B       9",
 			"A-F       7",

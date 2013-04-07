@@ -1,8 +1,6 @@
 package coursera.exercise;
 
-import com.coursera.algorithms.algs4.Bag;
-import com.coursera.algorithms.algs4.Edge;
-import com.coursera.algorithms.algs4.EdgeWeightedGraph;
+import com.coursera.algorithms.algs4.*;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
@@ -74,16 +72,45 @@ public class GraphUtil {
 		return result;
 	}
 
-	public static EdgeWeightedGraph edgeWeighted(int V, String... in) {
-		EdgeWeightedGraph g = new EdgeWeightedGraph(V);
+	private static interface AddEdge<G> {
+		void addEdge(G g, int v, int w, double weight);
+	}
+
+	private static AddEdge<EdgeWeightedGraph> ADD_EDGE_GRAPH = new AddEdge<EdgeWeightedGraph>() {
+		@Override
+		public void addEdge(EdgeWeightedGraph g, int v, int w, double weight) {
+			g.addEdge(new Edge(v, w, weight));
+		}
+	};
+
+	private static AddEdge<EdgeWeightedDigraph> ADD_EDGE_DIGRAPH = new AddEdge<EdgeWeightedDigraph>() {
+		@Override
+		public void addEdge(EdgeWeightedDigraph g, int v, int w, double weight) {
+			g.addEdge(new DirectedEdge(v, w, weight));
+		}
+	};
+
+
+	private static <T> void fillWeigthedGraph(T g, AddEdge<T> adder, String edgeSplitter, String[] in) {
 		for(String line: in) {
 			List<String> edgeWeight = ImmutableList.copyOf(Splitter.on(CharMatcher.WHITESPACE).omitEmptyStrings().split(line));
-			List<String> edge = ImmutableList.copyOf(Splitter.on("-").split(edgeWeight.get(0)));
+			List<String> edge = ImmutableList.copyOf(Splitter.on(edgeSplitter).split(edgeWeight.get(0)));
 			int v = fromUpperChar(edge.get(0));
 			int w = fromUpperChar(edge.get(1));
 			int weight = parseInt(edgeWeight.get(1));
-			g.addEdge(new Edge(v, w, weight));
+			adder.addEdge(g, v, w, weight);
 		}
+	}
+
+	public static EdgeWeightedGraph weightedGraph(int V, String... in) {
+		EdgeWeightedGraph g = new EdgeWeightedGraph(V);
+		fillWeigthedGraph(g, ADD_EDGE_GRAPH, "-", in);
+		return g;
+	}
+
+	public static EdgeWeightedDigraph weightedDigraph(int V, String... in) {
+		EdgeWeightedDigraph g = new EdgeWeightedDigraph(V);
+		fillWeigthedGraph(g, ADD_EDGE_DIGRAPH, "->", in);
 		return g;
 	}
 }

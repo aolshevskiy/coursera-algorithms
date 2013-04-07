@@ -5,13 +5,13 @@ import com.google.common.base.Joiner;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static coursera.exercise.GraphUtil.edgeWeighted;
+import static coursera.exercise.GraphUtil.weightedGraph;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 public class KruskalDiscoveryOrderTest {
 	@DataProvider(name = "data")
 	static Object[][] data() {
-		return new Object[][]{{edgeWeighted(
+		return new Object[][]{{weightedGraph(
 			10,
 			"A-B    16",
 			"A-F    15",
@@ -31,7 +31,7 @@ public class KruskalDiscoveryOrderTest {
 			"I-H    10",
 			"J-I     9"),
 			"1 2 3 4 7 8 9 11 15"
-		}, {edgeWeighted(
+		}, {weightedGraph(
 			10,
 			"A-B    16",
 			"F-A    15",
@@ -52,7 +52,7 @@ public class KruskalDiscoveryOrderTest {
 			"I-J    17"
 		),
 			"1 2 3 4 8 9 10 11 15"
-		}, {edgeWeighted(
+		}, {weightedGraph(
 			10,
 			"B-A    12",
 			"A-G    10",
