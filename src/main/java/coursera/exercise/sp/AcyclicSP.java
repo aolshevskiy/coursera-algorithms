@@ -11,7 +11,7 @@ import com.coursera.algorithms.stdlib.StdOut;
  * **********************************************************************
  * Compilation:  javac AcyclicSP.java
  * Execution:    java AcyclicSP V E
- * Dependencies: EdgeWeightedDigraph.java DirectedEdge.java Topological.java
+ * Dependencies: EdgeWeightedDigraph.java DirectedEdge.java SeamTopo.java
  * Data files:   http://algs4.cs.princeton.edu/44sp/tinyEWDAG.txt
  * <p/>
  * Computes shortest paths in an edge-weighted acyclic digraph.
